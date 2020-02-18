@@ -89,8 +89,7 @@ background-color: #333;
 .libDisplay {
   align-items: center;
   margin-top: 15px;
-  margin-bottom:15px;
-
+  margin-bottom:15px,
 }
  table,td,th {
   border: 1px solid #ddd;
@@ -113,7 +112,7 @@ thead{
 tr:nth-child(even){background-color: #f2f2f2;}
 tr:hover {background-color: #ddd;}
 /*  */
-#myTable1, #myTable2, #myTable3, #myTable4, #myTable5{
+#myTable1, #myTable2, #myTable3{
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   /* border-collapse: collapse; */
   border-spacing: 1px;
@@ -122,34 +121,19 @@ tr:hover {background-color: #ddd;}
   width: 100%;
 }
 
-.myTable1, .myTable2, .myTable3, .myTable4, .myTable5{
+.myTable1, .myTable2, .myTable3{
 
   /* border-collapse: collapse; */
   border-spacing: 1px;
   border: 1px solid rgb(102, 79, 79);
-  
-   margin: 10px;
+  margin: 2px;
+  width: 33%;
 }
 /* .myTable1, .myTable2,.myTable3{
   width: 50%;
 } */
 #libHeader{
   width: 100%;
-}
-.gridrow{
-  display: grid;
-grid-template-rows: 1fr;
-grid-template-columns: auto;
-grid-auto-flow: column;
-}
-.myTable4{
-  grid-row: 2;
-  grid-column: 1;
-}
-
-.myTable5 {
-  grid-row: 2;
-  grid-column: 2;
 }
 
 .propulsion {
@@ -189,7 +173,6 @@ p {
 <div class="topnav">
   <a class="active" href="#home">Home</a>
   <a href="https://github.com/osain-az/Vessel-Machinery">GitHub Rep</a>
-  <a  href="introduction/">introduction </a>
    <a href="Flowchat/"> Flowchat</a>
  <!--  <a href="#about"></a> -->
 </div>
@@ -299,7 +282,7 @@ p {
 
    </div>
    <div class="thruster column " id="thruster">
-     <select onchange="libraryDisplay(event)">
+     <select  onchange="libraryDisplay(event)">
       <option value="" selected>thruster suppler </option>
       <option value="ABBthruster">ABB</option>
       <!-- <option value="RRMthruster">RRM</option> -->
@@ -329,11 +312,12 @@ p {
  <div class="libDisplay">
 
    <div id="libHeader" ></div>
-   <div class="gridrow">  
+   <div class="row">  
 
    <div id="divMyTable1" class="myTable1 hide">
     <table id="myTable1" class=" hide">
       <thead>
+        
         <th colspan="12">The table header</th>
    
       </thead>
@@ -352,7 +336,7 @@ p {
     </table>
    </div>
 
- <div id="divMyTable2" class="myTable2 hide ">
+ <div id="divMyTable2" class="myTable2 hide">
   <table id="myTable2" class="hide">
     <thead>
         
@@ -758,28 +742,13 @@ else if (EventID ==="blueWhale") {
 }
 let hide = 0 // this is used the initialize or active removing of hide class 
 function libraryDisplay(event) {
-
   let table1 = document.getElementById("myTable1");
   let table2 = document.getElementById("myTable2");
   let table3 = document.getElementById("myTable3");
-  let table4 = document.getElementById("myTable4");
-  let table5 = document.getElementById("myTable5");
-
-//  hide the tables to ensure that only 
-   document.getElementById("divMyTable1").classList.add("hide");
-   document.getElementById("divMyTable2").classList.add("hide");
-  document.getElementById("divMyTable3").classList.add("hide");
-   document.getElementById("divMyTable4").classList.add("hide");
-  document.getElementById("divMyTable5").classList.add("hide");
-  // Hide the
-  // table1.classList.add("hide");
-  // table2.classList.add("hide");
-  // table3.classList.add("hide");
-  // table4.classList.add("hide");
-  // table5.classList.add("hide");
  
- 
-
+  //   table1.remove();
+  // table2.remove();
+  // table3.remove();
   while (table1.hasChildNodes()) {
   table1.removeChild(table1.firstChild);
   
@@ -791,16 +760,9 @@ function libraryDisplay(event) {
   while (table3.hasChildNodes()) {
   table3.removeChild(table3.firstChild);
   
-  }
-  while (table4.hasChildNodes()) {
-  table4.removeChild(table4.firstChild);
-  
-  }
-  while (table5.hasChildNodes()) {
-  table5.removeChild(table5.firstChild);
-  
-  }
  
+
+  }
  
 //   for (var j = 0 ; j < table.rows.length; j++) {
  
@@ -820,13 +782,12 @@ function libraryDisplay(event) {
   let I;
   let ends;
   let libraryCount;
-  let library, productType, productSupplier;
+  let library;
   let myTable ;
   //Main Engine suppliers 
   let kongsberg1 = kongsbergEngine.kongsberg1;
   let kongsberg2 = kongsbergEngine.kongsberg2;
   let kongsberg3 = kongsbergEngine.kongsberg3;
-
   let wartsila1 = wartsilaEngine.wartsila1
   let wartsila2 = wartsilaEngine.wartsila2
   let wartsila3 = wartsilaEngine.wartsila3
@@ -843,12 +804,9 @@ function libraryDisplay(event) {
    // propulsion data
    let ABBprop1 = ABBProp.azipod
    let ABBprop2 = ABBProp.azipod1
-   let ABBprop3 = ABBProp.azipod2
-   let ABBprop4 = ABBProp.azipod3
   //  let ABBprop3 = ABBPr
   let kongsbergProp1 = kongsbergProp.eLegance
   let kongsbergProp2 =  kongsbergProp.mermaid
-  let kongsbergProp3 =  kongsbergProp.mermaid1
 
   //Thruster 
 
@@ -879,41 +837,28 @@ function libraryDisplay(event) {
     // count how many machinery did every given suplier have on any given product 
     if(EventID ==="kongsberg"){
       //konsgberg engine
-      productSupplier = "Konsberg Maritime";
-      productType = "Propulsion Engine"
       libraryCount = Object.keys(kongsbergEngine).length
     }
     else if(EventID ==="wartsilaEngine"){
       //wartsila engine 
-      productSupplier = "Wartsila";
-      productType = "Propulsion Engine"
       libraryCount = Object.keys(kongsbergEngine).length
     }
 
     else if(EventID ==="kongsbergGenset"){
      // konsgberg genset
-     productSupplier = "Konsberg Maritime";
-      productType = "Generator set";
       libraryCount = Object.keys(kongsbergEngine).length
-      console.log("engine",libraryCount) 
     }
     else if(EventID ==="wartsilaGenset"){
       //wartsila Genset 
-      productSupplier = "Wartsila";
-      productType = "Generator set"
       libraryCount = Object.keys(kongsbergEngine).length
     }
 
     else if(EventID ==="ABBProp"){
       //ABB proppeller 
-      productSupplier = "ABB";
-      productType = "Propellers"
       libraryCount = Object.keys(ABBProp).length
     }
     else if(EventID ==="kongsbergProp"){
       //kongsberg proppeller
-      productSupplier = "Konsberg";
-      productType = "Propellers"
       libraryCount = Object.keys(kongsbergProp).length
     }
     // else if(EventID ==="wartsilaProp"){
@@ -923,29 +868,22 @@ function libraryDisplay(event) {
 
     else if(EventID ==="ABBthruster"){
       //ABB thruster
-      productSupplier = "ABB";
-      productType = "Thrusters"
       libraryCount = Object.keys(ABBthruster).length
     }
     else if(EventID ==="kongsbergthruster"){
       //kongsberg thrsuter
-      productSupplier = "Konsberg";
-      productType = "Thrusters"
       libraryCount = Object.keys(kongsbergThruster).length
     }
     else if(EventID ==="wartsilathruster"){
       //wartsilar thruster
-      productSupplier = "ABB";
-      productType = "Thrusters"
       libraryCount = Object.keys(wartsilaThruster).length
     }
     
     
     const header = document.getElementById("libHeader");
-    header.innerHTML = `<h2>sellect the avaliable ${ productType} from  ${productSupplier}</h2>`
-   console.log("count", libraryCount)
+    header.innerHTML = `<h2>sellect the avaliable ${ engineType} from  ${kongsberg1.supplier}</h2>`
+   
    for ( I = 0; I < libraryCount; I++) {
-
       if (I === 0) {
         if (EventID ==="kongsberg" ) {
         library = kongsberg1
@@ -1040,13 +978,6 @@ function libraryDisplay(event) {
         else if(EventID ==="ABBthruster"){
           library= ABBthruster3
         }
-
-        else if(EventID ==="ABBProp"){
-          library= ABBprop3
-        }
-        else if(EventID ==="kongsbergProp"){
-          library= kongsbergProp3
-        }
         // else if(EventID ==="kongsbergthruster"){
         //   library= kongsbergThruster3
         // }
@@ -1072,44 +1003,32 @@ function libraryDisplay(event) {
     }
 
     else if(I===3){
-          
+
          if(EventID==="wartsilathruster"){
           library= wartsilaThruster4
-          
-
         }
 
-
-
-        else if(EventID ==="ABBProp"){
-          library= ABBprop4
-        }
-        console.log("the 4th level")
-        
         document.getElementById("divMyTable4").classList.remove("hide");
       //  document.getElementById("myTable3").tHead.innerHTML = "<webkit-colspan: 4, Product detail"
       //  document.getElementById("myTable3").tHead.colSpan="2"
 
       myTable= "myTable4"
       i= 0 
+        
         }
 
      else if(I===4){
       if(EventID==="wartsilathruster"){
           library= wartsilaThruster5
-          console.log("5th ",library)
-
         }
 
-        console.log("the 5th level")
+
         document.getElementById("divMyTable5").classList.remove("hide");
       //  document.getElementById("myTable3").tHead.innerHTML = "<webkit-colspan: 4, Product detail"
       //  document.getElementById("myTable3").tHead.colSpan="2"
 
       myTable= "myTable5"
       i= 0 
-
-
         
         
       }
@@ -1119,10 +1038,10 @@ function libraryDisplay(event) {
      
       let table = document.getElementById(`${myTable}`);
 
-    
+      if(hide===0){
         table.classList.remove("hide")
         
-      
+      }
 
      row = table.insertRow(i)
     row.insertCell(0).innerHTML =`<strong>`+`${key}:</strong> `;

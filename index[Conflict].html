@@ -1,0 +1,556 @@
+
+ <!DOCTYPE>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Vessel mechineries">
+	<meta name="author" content="Azibodusi Osain">
+
+	<title>Ship mechineries analysis and emission prediction base on the mechineries</title>
+
+	<!-- Bootstrap Core CSS -->
+	<!--<link href="libs/bootstrap.min.css" rel="stylesheet"> -->
+
+
+	<!-- Bootstrap Core JavaScript -->
+	<!-- <script src="libs/bootstrap.min.js"></script> -->
+
+
+
+    <!--Import master script-->
+<script src="machinery.js"></script>
+
+
+	<!--Import library-->
+	<!-- <script src="../build/vessel.js"></script> -->
+
+
+</head>
+
+<body>
+<style>
+
+/* Nav bar  */
+.topnav {
+overflow: hidden;
+background-color: #333;
+
+}
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.container {
+ margin: auto;
+  text-align: center;
+  padding: auto;
+
+}
+
+.form{
+  display: block;
+  margin:  auto;
+}
+.border {
+  border: solid gray 2px;
+  background-color:
+}
+.row{
+  display: flex;
+
+}
+.mainContainer {
+  margin-top: 20px;
+  border: solid gray 2px;
+  background-color:
+  display: flex;
+
+}
+
+.propulsion {
+  margin-left: 35%;
+}
+
+h3 {
+  text-align: center;
+}
+
+.notics{
+  background-color: red;
+  text-align: center;
+}
+
+.column {
+  flex: 50%;
+  padding: 40px;
+
+}
+.range {
+  width: 60%;
+  margin: auto;
+}
+p {
+  padding-left: 10%;
+}
+ .inputValue {
+   padding-left: 15px;
+
+ },
+
+ .hide {
+
+ }
+
+</style>
+
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="https://github.com/osain-az/Vessel-Machinery">GitHub Rep</a>
+   <a href="Flowchat/"> Flowchat</a>
+ <!--  <a href="#about"></a> -->
+</div>
+
+<div class="col-md-12 text-center">
+
+</div>
+<div class="container" >
+  <h1>Ship machinery and analysis  </h1>
+
+		</div>
+		<div  >
+		<form  id="simple_form" class="form">
+
+			 <p class="P_range">Ship resistance kN: <input type="range" max="10000" min="10" id="resistance" class="range" onchange="getValues(event)"> or
+         <input type="text" onchange="getValues(event)"  id="resistanceInput"><span class="inputValue"id="resistanceValue"> </span><br> </p>
+
+		 <p>	Ship speed Knots: <input type="range" max="60" min="5"id="speed" class="range" onchange="getValues(event)"> or
+       <input type="text" onchange="getValues(event)" id="speedinput"><span  class="inputValue" id="speedValue"> </span><br> </p>
+
+    <p>  max voyage in days: <input type="range" max="20" min="0.5" id="voyage" class="range" onchange="getValues(event)">or
+      <input type="text" onchange="getValues(event)" id="voyageInput"><span  class="inputValue" id="voyageValue"> </span> </p>
+
+			</form>
+		</div>
+
+  </div>
+
+
+<div class="">
+  <h3>Choose options that apply to your ship</h3>
+
+
+  <div class="propulsion column" id="propulsion">
+    <select onchange="choosePropulsion(event)" id="propulsion">
+     <option value="" selected>Type of Propulsion system </option>
+     <option value="Diesel">Diesel Propulsion</option>
+     <option value="Diesel-Electric">Diesel-Electric Propulsion</option>
+     <option value="LNG">LNG propulsion</option>
+     <option value="Hybrid">Hybrid Propulsion</option>
+     <option value="battery">battery Propulsion</option>
+     </select>
+  </div>
+
+</div>
+
+
+
+
+ </div>
+ <div class="">
+
+  <h3 class="machinery_h3">Machery library</h3>
+
+ <div class="mainContainer row ">
+   <div class="BMS column">
+     <select>
+      <option value="" selected>choose battery supplier</option>
+      <option value="corvusOrcaPower">corvus/Orca Power</option>
+      <option value="corvusOrcaPower">corvus/Orca Energy</option>
+      <option value="PBESPB1">PBES/PB1</option>
+      <option value=""></option>
+      </select>
+
+   </div>
+   <div class="engine column">
+     <select>
+      <option value="" selected>Engin type </option>
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
+      </select>
+
+   </div>
+   <div class="genSet column">
+     <select>
+      <option value="" selected>Genset</option>
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
+      </select>
+
+   </div>
+   <div class="proppellers column">
+     <select>
+      <option value="" selected>propellers</option>
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
+      </select>
+
+   </div>
+   <div class="thruster column">
+     <select>
+      <option value="" selected>Thrusters </option>
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
+      </select>
+
+   </div>
+
+   <div class="column">
+
+     <select  id="choosefuel" onchange="sellectFuel(event)">
+      <option value="" selected>Fuel Alternative</option>
+      <option value="LNG">LNG</option>
+      <option value="hydrogen">Hydrogen</option>
+      <option value="MGO">MGO</option>
+      <option value="MDO">MDO</option>
+      <option value="HFO">HFO</option>
+      </select>
+
+   </div>
+
+ </div>
+ </div>
+
+
+ <div class="libDisplay hide">
+   <table id="myTable">
+   <tr>
+     <h2>Battery pack  detals </h2>
+     <td></td>
+     <td></td>
+   </tr>
+   <tr>
+     <td></td>
+     <td></td>
+   </tr>
+   <tr>
+     <td></td>
+     <td></td>
+   </tr>
+   <tr>
+     <td></td>
+     <td></td>
+   </tr> <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+ </table>
+
+ </div>
+
+
+ <div class="border">
+
+  <div class=" row"  >
+
+      <div class="Scrubber column">
+         <h4>install Scrubber </h4>
+         yes:<input type="radio" name="Scrubber" value="yes"><br>
+         no:  <input type="radio"  name="Scrubber" value="no"><br>
+      </div >
+
+      <div class="column"  >
+      <h4>IMO Regulation</h4>
+        <select>
+         <option value="" selected>regulations that apply</option>
+         <option value=""></option>
+         <option value=""></option>
+         <option value=""></option>
+         <option value=""></option>
+         </select>
+      </div>
+    </div>
+
+  </div>
+
+ <div class="">
+
+ </div>
+
+<div class="result_container row" id="result_container">
+  <div class="column" id="tank_volume">
+  </div>
+  <div class="column" id="mass" >
+  </div>
+  <div class="column" id="power">
+
+  </div>
+</div>
+<p></p>
+ </div>
+
+</body>
+<html>
+ <script>
+
+
+ var resistance, speed, voyage, fuel_Consumption, fuelName, propulsion_name, battery;
+
+
+
+	 const requirePower = new Machineries();
+	 // console.log(lng.calculatePower.speed)
+
+// Get the speed and the resistance that was input by the user
+ function getValues(event){
+   //speed =  document.getElementById('speedinput').value
+   //resistance = document.getElementById('resistance').value
+   //resistance = document.getElementById('resistanceInput').value
+   //voyage = document.getElementById('voyage').value
+  const EventID = event.target.id;
+
+ if (EventID ==='speed' || EventID === 'speedinput') {
+
+   speed = event.target.value
+   console.log("the new speed ", speed)
+   document.getElementById('speedValue').innerHTML=speed + " knots"
+
+   if (EventID ==='speedinput') {
+     document.getElementById(EventID).value = ""
+
+   }
+
+ }
+ else if (EventID === 'resistance'|| EventID === 'resistanceInput' ) {
+
+   resistance = event.target.value
+   document.getElementById('resistanceValue').innerHTML=resistance + " kN"
+
+   if (EventID==='resistanceInput') {
+     document.getElementById(EventID).value = ""
+   }
+    console.log("the new resistance", resistance )
+
+ }
+
+ else if (EventID === 'voyage' || EventID ==='voyageInput' ) {
+   voyage = event.target.value
+   document.getElementById('voyageValue').innerHTML=voyage + " days"
+   if (EventID === 'voyageInput') {
+     document.getElementById(EventID).value = ""
+   }
+    console.log("the new voyage ", voyage)
+ }
+
+ if(speed && resistance && voyage){
+    requirePower.calculatePower(speed,resistance,voyage)
+
+  }
+  else if (speed && resistance) {
+    requirePower.calculatePower(speed,resistance)
+
+  }
+  if (fuelName==='LNG') {
+    sellectFuel();
+
+  }
+
+  }
+
+  function sellectFuel(event){
+      const EventID = event.target.value;
+
+   fuelName = document.getElementById("choosefuel").value;
+  //document.getElementById("demo").innerHTML =
+
+  if (!speed || !resistance) {
+    alert("input the speed and resistance of the ship to start the analysis ")
+    //document.getElementById("choosefuel").reset();
+
+  }
+
+  else if (fuelName === "LNG"){
+    // create new instance for LNG fuel.
+   fuel_Consumption = new Machineries();
+    fuel_Consumption.fuelConsumption(LNG.density, LNG.LHV, LNG.HHV, LNG.SFC,requirePower.power,LNG.fuelName,requirePower.voyage);
+    document.getElementById("mass").innerHTML = "the total mass of " +  LNG.fuelName + " is <br> " + "<strong>" +fuel_Consumption.mass + " tons</strong>"
+    //fuel_Consumption.tank_volume = fuel_Consumption.tank_volume.toFixed(1);
+    document.getElementById("tank_volume").innerHTML = "The required tank volume using " +  LNG.fuelName + " is  <br>"  + "<strong>" + fuel_Consumption.tank_volume + " m^3</strong>"
+    document.getElementById("power").innerHTML = " The minimum propulsion power of the ship  is  <br>" + "<strong>" + requirePower.power + "kW <strong>"
+
+  }
+
+  else if (fuelName==="MGO") {
+    // create new instance for LNG fuel.
+    fuel_Consumption = new Machineries();
+    fuel_Consumption.fuelConsumption(MGO.density, MGO.LHV,MGO.HHV, MGO.SFC,requirePower.power,MGO.fuelName,requirePower.voyage);
+    document.getElementById("mass").innerHTML = "the total mass of " +  MGO.fuelName + " is <br> " + "<strong>" +fuel_Consumption.mass + " tons</strong>"
+    //fuel_Consumption.tank_volume = fuel_Consumption.tank_volume.toFixed(1);
+    document.getElementById("tank_volume").innerHTML = "The required tank volume using " +  MGO.fuelName + " is  <br>"  + "<strong>" + fuel_Consumption.tank_volume + " m^3</strong>"
+    document.getElementById("power").innerHTML = " The minimum propulsion power of the ship  is  <br>" + "<strong>" + requirePower.power + "kW <strong>"
+
+
+    console.log(fuelName)
+  }
+
+  else if (fuelName==="MDO") {
+    // create new instance for LNG fuel.
+    fuel_Consumption = new Machineries();
+    fuel_Consumption.fuelConsumption(MDO.density, MDO.LHV,MDO.HHV, MDO.SFC,requirePower.power,MDO.fuelName,requirePower.voyage);
+    document.getElementById("mass").innerHTML = "the total mass of " +  MDO.fuelName + " is <br> " + "<strong>" +fuel_Consumption.mass + " tons</strong>"
+    //fuel_Consumption.tank_volume = fuel_Consumption.tank_volume.toFixed(1);
+    document.getElementById("tank_volume").innerHTML = "The required tank volume using " +  MDO.fuelName + " is  <br>"  + "<strong>" + fuel_Consumption.tank_volume + " m^3</strong>"
+    document.getElementById("power").innerHTML = " The minimum propulsion power of the ship  is  <br>" + "<strong>" + requirePower.power + "kW <strong>"
+
+    console.log(fuelName)
+  }
+
+  else if (fuelName==="hydrogen") {
+    fuel_Consumption = new Machineries();
+    fuel_Consumption.fuelConsumption(H2.density, H2.LHV,LNG.HHV,H2.SFC,requirePower.power,H2.fuelName,requirePower.voyage);
+    document.getElementById("mass").innerHTML = "the total mass of " +  H2.fuelName + " is <br> " + "<strong>" +fuel_Consumption.mass + " tons</strong>"
+    //fuel_Consumption.tank_volume = fuel_Consumption.tank_volume.toFixed(1);
+    document.getElementById("tank_volume").innerHTML = "The required tank volume using " +  H2.fuelName + " is  <br>"  + "<strong>" + fuel_Consumption.tank_volume + " m^3</strong>"
+    document.getElementById("power").innerHTML = " The minimum propulsion power of the ship  is  <br>" + "<strong>" + requirePower.power + "kW <strong>"
+
+    // create new instance for Hydrogen fuel.
+    console.log(fuelName)
+
+  }
+
+  else if (fuelName==="HFO") {
+
+    // create new instance for HFO fuel.
+    fuel_Consumption = new Machineries();
+    fuel_Consumption.fuelConsumption(HFO.density, HFO.LHV, HFO.HHV,HFO.SFC,requirePower.power,HFO.fuelName,requirePower.voyage);
+    document.getElementById("mass").innerHTML = "the total mass of " +  HFO.fuelName + " is <br> " + "<strong>" +fuel_Consumption.mass + " tons</strong>"
+    //fuel_Consumption.tank_volume = fuel_Consumption.tank_volume.toFixed(1);
+    document.getElementById("tank_volume").innerHTML = "The required tank volume using " +  HFO.fuelName + " is  <br>"  + "<strong>" + fuel_Consumption.tank_volume + " m^3</strong>"
+    document.getElementById("power").innerHTML = " The minimum propulsion power of the ship  is  <br>" + "<strong>" + requirePower.power + "kW <strong>"
+
+    console.log(fuelName)
+
+  }
+
+  }
+
+function choosePropulsion(event){
+  const EventID = event.target.value;
+  if (EventID=== "battery" || EventID=== "Hybrid"){
+   displayBatteryPack()
+  }
+  // propulsion_name = document.getElementById("propulsion").value;
+  // console.log(propulsion_name)
+  console.log(EventID)
+
+  //
+  // }
+}
+battery = Machinery.batterySystem
+function displayBatteryPack(event) {
+  //document.getElementById("myP").style.visibility = "hidden";
+  console.log(battery.supplier.corvus1)
+
+
+  let corvus1 = battery.supplier.corvus1
+  let corvus2 = battery.supplier.corvus2
+  let pbes = battery.supplier.PBES
+  console.log( corvus1.supplier)
+  console.log(Object.entries(corvus1))
+  const table = document.getElementById("myTable");
+const row1 = table.insertRow(0)
+const row2 = table.insertRow(1)
+const row3 = table.insertRow(2)
+const row4 = table.insertRow(3)
+const row5 = table.insertRow(4)
+const row6 = table.insertRow(5)
+const row7 = table.insertRow(6)
+const row8 = table.insertRow(7)
+const row9 = table.insertRow(8)
+const row10 = table.insertRow(9)
+// const row8 = table.insertRow(10)
+// const row9 = table.insertRow(7)
+// const row10 = table.insertRow(7)
+// const row8 = table.insertRow(7)
+
+heigh: 2200
+width: 645
+depth: 705
+ row1.insertCell(0).innerHTML =" <strong>Supplier : </strong>";
+ row1.insertCell(1).innerHTML = "<strong> " + corvus1.supplier + "</strong>";
+
+ row2.insertCell(0).innerHTML =" <strong>Model :</strong>";
+ row2.insertCell(1).innerHTML = "<strong> " + corvus1.model + "</strong>";
+
+ row3.insertCell(0).innerHTML =" <strong>BatteryType : </strong>";
+ row3.insertCell(1).innerHTML = "<strong> " + corvus1.batteryType + "</strong>";
+
+ row4.insertCell(0).innerHTML =" <strong>C_Rate : </strong>";
+ row4.insertCell(1).innerHTML = "<strong> " + corvus1.c_Rate + " peak" +"</strong>";
+
+  row5.insertCell(0).innerHTML =" <strong>lifeCycle : </strong>";
+  row5.insertCell(1).innerHTML = "<strong> " + corvus1.lifeCycle + "</strong>";
+
+  row6.insertCell(0).innerHTML =" <strong>DOD :  </strong>";
+  row6.insertCell(1).innerHTML = "<strong> " + corvus1.DOD + "</strong>" +"%";
+
+  row7.insertCell(0).innerHTML =" <strong>chargeState : </strong>";
+  row7.insertCell(1).innerHTML = "<strong> " + corvus1.chargeState  + "</strong>";
+
+  row8.insertCell(0).innerHTML =" <strong>capacity: </strong>";
+  row8.insertCell(1).innerHTML = "<strong> " + corvus1.capacity +  "</strong>"+ " kwh";
+
+  row9.insertCell(0).innerHTML =" <strong>Norminal Voltage :  </strong>";
+  row9.insertCell(1).innerHTML = "<strong> " + corvus1.norminalVoltage + "</strong>" +" VDC";
+
+  row10.insertCell(0).innerHTML =" <strong>weight : </strong>";
+  row10.insertCell(1).innerHTML = "<strong> " + corvus1.weight + "</strong>" +" kg";
+
+  row8.insertCell(0).innerHTML =" <strong>weight : </strong>";
+  row8.insertCell(1).innerHTML = "<strong> " + corvus1.weight +  "</strong>"+ " kg";
+
+  row9.insertCell(0).innerHTML =" <strong>Norminal Voltage :  </strong>";
+  row9.insertCell(1).innerHTML = "<strong> " + corvus1.norminalVoltage + "</strong>" +" VDC";
+
+  row10.insertCell(0).innerHTML =" <strong>weight : </strong>";
+  row10.insertCell(1).innerHTML = "<strong> " + corvus1.weight + "</strong>" +" kg";
+
+
+
+
+
+}
+
+//console.log("this is not ", fuelTypie)
+
+
+</script>
+
+</body>
