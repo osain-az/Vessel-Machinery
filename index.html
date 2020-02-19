@@ -156,7 +156,7 @@ grid-auto-flow: column;
   margin-left: 35%;
 }
 
-h3, h2 {
+h3, h2,p {
   text-align: center;
 }
 
@@ -235,10 +235,11 @@ p {
 
 
 <div class="">
-  <h3>choose the propulsion system to display relevant machinery library  </h3>
+  <h3>choose the propulsion system that apply to your vessel to display relevant machinery library  </h3>
 
 
   <div class="propulsion column" id="propulsion">
+
     <select onchange="choosePropulsion(event)" id="propulsion" >
      <option value="" selected>Type of Propulsion system </option>
      <option value="diesel">Diesel Propulsion</option>
@@ -259,6 +260,7 @@ p {
 
  <div class=" row ">
    <div class="BMS column " onchange="batteryLibray(event)" id="BMS">
+     <strong><p>choose the battery supplier and the model </p></strong>
      <select>
       <option value="" selected>choose battery supplier</option>
       <option value="orcaPower">Corvus/Orca Power</option>
@@ -269,6 +271,7 @@ p {
 
    </div>
    <div class="engine column" onchange="libraryDisplay(event)" id="engine" >
+       <strong><p>choose engine supplier</p></strong>
      <select >
       <option value="" selected><strong>Choose engine supplier</strong> </option>
       <option value="kongsberg">Kongsberg</option>
@@ -279,6 +282,7 @@ p {
 
    </div>
    <div class="genSet column hide" id="genSet">
+    <strong><p>Choose the avaliable GenSet supplier</p></strong> 
      <select onchange="libraryDisplay(event)">
       <option value="" selected>Genset</option>
       <option value="kongsbergGenset">Kongsberg</option>
@@ -289,8 +293,10 @@ p {
 
    </div>
    <div class="propellers column" id="propellers">
+    <strong><p>Choose the avaliable Propeller supplier</p></strong>
+     
      <select onchange="libraryDisplay(event)">
-      <option value="" selected>Propulsor suppler </option>
+      <option value="" selected>Propeller suppler </option>
       <option value="ABBProp">ABB</option>
       <!-- <option value="RRMProp">RRM</option> -->
       <option value="kongsbergProp">Kongsberg</option>
@@ -299,6 +305,7 @@ p {
 
    </div>
    <div class="thruster column " id="thruster">
+    <strong><p>Choose the avaliable thrsuter supplier<p></strong>
      <select onchange="libraryDisplay(event)">
       <option value="" selected>thruster suppler </option>
       <option value="ABBthruster">ABB</option>
@@ -310,7 +317,7 @@ p {
    </div>
 
    <div class="column" >
-
+    <strong><p>Choose the avaliable fuel type </p></strong>
      <select  id="" onchange="sellectFuel(event)">
       <option value="" selected>Fuel Alternative</option>
       <option value="LNG">LNG</option>
