@@ -32,6 +32,33 @@
         background-color: #4CAF50;
         color: white;
       }
+      h1,h2,p, h3{
+        text-align: center;
+        
+      }
+      .step{
+
+        text-align: center;
+    
+      }
+      .row{
+        display: flex;
+
+      }
+      .column {
+     border: solid #333 1px;
+     padding: 40px;
+
+     }
+    .introduction{
+      line-height: 1.6;
+    }
+     .reference{
+       /* border: solid rgb(84, 67, 75) 3px; */
+       margin: 20px;
+       text-align: center;
+     }
+
 
     </style>
 
@@ -43,11 +70,149 @@
      <!--  <a href="#about"></a> -->
     </div>
 
-    <div class="Flowchat_image">
-      <img src="../image/flowchat.jpg" alt="The flow chat image "  >
+      <div class="introduction">
+         <h1>Master's thesis introduction</h1>
+         <h2>Digital Twins of Ship Propulsion Machinery</h2>
 
-    </div>
+         <p>Digital Twin (DT) is a virtual or digital representation of a physical system taht is driven by the data of a physical system and can render the state and behaviors <br>
+           identical to the real physical system. A system is considered as a  DT if it has three main properties which include, A physical product, a virtual product with  <br> 
+           data of the physical product,  and a connection or synchronization of data and information between the  virtual and the physical system. <br>
+           DT  is no longer a new concept or technology to  industries, it is growing exponentially since it was first publicly introduced in 2002 by Michael Grieves <br>
+           where he proposed DT for conceptual model of product lifecycle. Recently the maritime industry is experiencing a trend on digital twin, where companies <br>
+          like <strong> Kongsberg, DNV GL,  Navantia, Siemen, etc</strong> are devoting resources and research on DT and developing different DT, <br>
+           this is also made possible due to the advancement of technologies like internet of things (IoT), Artificial intelligence (Al), machine learning (ML),<br>
+            Deep learning (DL)  and other algorithms also the  advancement of hardware like sensors etc. This advancement has enabled DT to be used to perform different task and <br>
+             purpose ranging from production development, Simulation of behaviors of a given product, creating of scenario to see how the physical  product will perform on those conditions <br>
+              and also a real time update status of the physical system when is under operational [1], [2], [3]</p>
 
+              <p>In shipbuilding industry and generally in maritime industry, DT offer diverse opportunities in all stage of the ship or product life cycle, during development of product. <br>
+               DT could be used for Optimization of the design process, investigate efficient ways of reducing energy consumption, testing of different propulsion system, simulate operations of a ship, etc, <br>
+                in this stage DT offer numerous opportunities in shipbuilding industry. After development, this is where the most promising part of DT lies where the ship or product is synchronized <br>
+                with the virtual system using sensors and other advanced technology to get the physical state and behaviors of the product in real-time, this could serve a lot of purpose ranging maintenance, <br>
+                 predicting of failures in the product before it happens using the above-mentioned technologies.</p>
+
+                <!-- <p>
+                  In Bendik Voldnes carried out a master’s thesis project where he simulates marine hybrid machinery system using excel, the thesis was in connection a ship design company, <br>
+                  in the thesis he simulates different configurations of the hybrid propulsion system to ascertain the preferred configuration of the vessel operation profile for the company. <br>
+                   In his further works, he recommended that further research on creating a program that allows variable inputs should be done.
+                </p> -->
+            
+                <p>
+                 <h3>Master's research</h3>
+                 This master’s thesis will research and create Digital Twin of ship propulsion systems  using JavaScript and other web base technologies, as mentioned earlier <br>
+                  that digital twin usually involved synchronizing physical system to the virtual system but the focus of this thesis will be to develop a system to be used during development and design phase <br>
+                  of vessel or ship therfore the thesis will not consider the synchronization of the individual  systems with the virtual systems but used the data of each system to craete a Digital systems.
+                </p>
+
+                <p>
+                  <h3>Methodolgy / approach </h3>
+                  To  create the digital twin of the different ship propulsion system, each  product will be investigated to know the data of the that system that will be  necessary to achieve the goal of the thesis. <br>
+                  The suppliers of the individual propulsion systems  like Kongsberg maritime, Wartsila, ABB, MAN etc. provides the data of individual systems on their website therefore this will be the main source <br>
+                  of data collection nevertheless interviews will be conducted with the suppliers and the manufacturer of this product to have an in-depth understanding of how each product works. <br>
+                  <strong> This is important because it will aid in creating algorithms for each product </strong> that has the same feature, functions and behaviors of the physical system, example of the <br> 
+                  product are battery management system (BMS), power management system (PMS) , etc.
+                </p>
+                <p>
+                  <h3>Thesis expected result </h3>
+                  At the end of the thesis a product is supposed to be delivered which is the web base Digital Twin of ship propulsion systems. The DT will have the following features and functions as follows: <br>
+                  <ul>
+                    <li>
+                      	Each available DT product will perform the same function and or close to that of the physical production.
+                    </li>
+                    <li>
+                      The product displayed on the site will be driven by the operational profile or type of ship.
+                    </li>
+                    <li>
+                      On the web site user will be able to chose a product customized that product to meet their needs. 
+                    </li>
+                    <li>
+                    	The web base system will allows Engineers to perform different analysis or compare the result of different machinery and simulations.
+                    </li>
+                    <li>
+                      It will be possible to simulate an operation like DP, sailing, harbor, etc. and also allow to transits between this operation. <br>
+                       During the simulation different machinery could be adjusted to see the effect.
+                    </li>
+                  </ul>
+                  <strong>Note: The above mention features are subjected to change.</strong>
+                </p>
+                
+      </div>
+   
+
+      <div class="row">
+        <div class="Flowchat_image column">
+          <img src="../image/basicFlowchat.png" alt=" the basic flow "  >
+    
+        </div>
+        <div class="column">
+          <p>
+            <h3>Process Flowchat</h3>
+            Figure 1 shows a basic flowchat process which is numbered from 1 to 10, at this stage of the thesis much has not been implemented <br>
+             so the flowchart only show an high level process flowchart. The steps involve are as follows according to there numbers : <br>
+             <p><strong class="step" >Step 1</strong></p>
+             <p>This step as shown represent the beginning of the process.</p>
+             <p><strong class="step">Step 2</strong></p>
+             <p>In this step as stated in the flow is to “choose operation profile” of the ship or vessel, in ship design the machinery of the ship or vessel is a function of the operation of the ship, this concept prebuilt inside the system. Each ship operation  chosen will have its own pre-defined machinery.</p>
+             <p><strong class="step">Step 3</strong></p>
+             <p>This step involve automatically displaying the available DT of the  machinery and their suppliers  which is driven by the type of ship or vessel choose in step 2.</p>
+             <p><strong class="step">Step 4</strong></p>
+             <p>This step involve displaying the details or data of the each DT that is available when click on it. In step 3, the type of machinery with different suppliers are display but in order to see the details a supplier has to be chosen  to display the product data of the supplier.</p>
+             <p></p><strong class="step">Step 5</strong></p>
+             In this step, one will be provided with an option to select the product be best meets it’s need, this will be after the step 4 has been complete.
+             <p><strong class="step">Step 6</strong></p>
+             <p>This step involve  finally adding the product to the vessel or ship propulsion machinery systems, this is after step 5 has been done and the product data meets the vessel requirement you intent to analyze or simulate.</p>
+             <p><strong class="step">Step 7</strong></p>
+             <p>In this step you all the necessary propulsion system needed to build a vessel or ship has been added to the vessel, if they are not added go back to step 6 but if they are completed then move to the next step.</p>
+
+             <p><strong class="step">Step 8</strong></p>
+             This is where all the simulations are done, in this step you could decide  what type analysis you want perform ranging from required power, required tank for an operation, emission, fuel consumption, compare different fuel emission, compare different machinery configuration performance. 
+One of the important simulation is the ability to simulate operation, during this simulation a window will open for live monitor of the operation and it possible to creation a scenario to see how it will affect in real live since all the product will behave like the physical system. 
+
+         <p> <strong class="step">Step 9</strong></p>
+             This step involve displaying the result of simulation in step 8
+             
+             
+            
+          </p>
+          
+
+        </div>
+      </div>
+      
+     <div class="reference">
+      <footer>
+        <ol>
+          <li>
+            Author(s): Jarosław Nowak, Equipment Analytics, ABB Marine & Ports <br>
+            Morten Stakkeland, Data Scientist, ABB Marine & Ports <br>
+            Your systems may be optimized but digital twins could learn to do it better <br>
+            2019-05-31 <br>
+            https://new.abb.com/news/detail/24663/your-systems-may-be-optimized-but-digital-twins-could-learn-to-do-it-better
+          </li>
+          <li>
+            Author(s) : Adil Rasheed, Omer San, Trond Kvamsda <br>
+            Digital Twin: Values, Challenges and Enablers From a Modeling Perspective <br>
+            publisher: IEEE <br>
+            date: 28 January 2020 <br>
+            Page(s): 21980 - 22012 <br>
+            DOI: 10.1109/ACCESS.2020.2970143
+
+          </li>
+          <li>
+            Author(s) : Florian Biesinger ; Davis Meike ; Benedikt Kraß ; Michael Weyrich <br>
+            A Case Study for a Digital Twin of Body-in-White Production Systems General Concept for Automated Updating of Planning Projects in the Digital Factory <br>
+            publisher: IEEE <br>
+            date: 25 October 2018 <br>
+            
+            DOI: 10.1109/ETFA.2018.8502467
+          </li>
+          <li>
+            
+          </li>
+        </ol>
+       
+    
+     </div>
 
   </body>
 </html>
