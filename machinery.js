@@ -922,6 +922,23 @@ const wartsilaThruster =  Machinery.propulsor.thruster.wartsila
 console.log(engineType);
 console.log(Machinery);
 
+// function batteryManagementSystem (){
+//   this.BMS = function{
+
+//          this.model = model,
+//          this.batteryType = batteryType,
+//          this.c_RateRMS = c_RateRMS,
+//          this.c_RateDischarge = c_RateDischarge,
+//          this.c_RateCharge: 3, //peak
+//          this.chargeState: "",
+//          this.lifeCycle1 : "7000 cycles; @ 100 %",
+//           this.DOD1: "100 %",
+//          this.lifeCycle2 : "15000 cycles;  @ 80 %",
+//           this.DOD2: "80 %",
+
+//   }
+// }
+
 
 
 const counting = Object.keys(ABBthruster).length

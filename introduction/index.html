@@ -32,10 +32,19 @@
         background-color: #4CAF50;
         color: white;
       }
-      h1,h2,p, h3{
+      h1,h2, h3{
         text-align: center;
         
       }
+      p{
+        font-size: 120%;
+        /* text-align: center; */
+        /* padding-left: 20px; */
+      }
+      .flow{
+        margin-top: 30px;
+      }
+    
       .step{
 
         text-align: center;
@@ -52,15 +61,17 @@
      }
     .introduction{
       line-height: 1.6;
+      padding-left: 30px;
     }
      .reference{
        /* border: solid rgb(84, 67, 75) 3px; */
-       margin: 50px;
+       margin: 100px;
        text-align: center;
        
      }
      li{
        margin: 10px;
+       font-size: 120%;
      }
 
 
@@ -69,8 +80,8 @@
     <div class="topnav">
       <a  href="../">Home</a>
       <a href="https://github.com/osain-az/Vessel-Machinery">GitHub Rep</a>
-       <a href="../Flowchat/index.html"> Flowchat and Status</a>
-       <a  class="active" href="introduction.html">introduction </a>
+       <a href="../Flowchat/index.html"> Flowchart and Status</a>
+       <a  class="active" href="introduction.html">Introduction </a>
      <!--  <a href="#about"></a> -->
     </div>
 
@@ -101,24 +112,28 @@
                    In his further works, he recommended that further research on creating a program that allows variable inputs should be done.
                 </p> -->
             
-                <p>
+               
                  <h3>Master's research</h3>
+                 <p>
                  This master’s thesis will research and create Digital Twin of ship propulsion systems  using JavaScript and other web base technologies, as mentioned earlier <br>
                   that digital twin usually involved synchronizing physical system to the virtual system but the focus of this thesis will be to develop a system to be used during development and design phase <br>
                   of vessel or ship therfore the thesis will not consider the synchronization of the individual  systems with the virtual systems but used the data of each system to craete a Digital systems.
                 </p>
 
+                <h3>Methodolgy / approach </h3>
                 <p>
-                  <h3>Methodolgy / approach </h3>
-                  To  create the digital twin of the different ship propulsion system, each  product will be investigated to know the data of the that system that will be  necessary to achieve the goal of the thesis. <br>
+                 
+                  To create the digital twin of the different ship propulsion system, each  product will be investigated to know the data of the that system that will be  necessary to achieve the goal of the thesis. <br>
                   The suppliers of the individual propulsion systems  like Kongsberg maritime, Wartsila, ABB, MAN etc. provides the data of individual systems on their website therefore this will be the main source <br>
                   of data collection nevertheless interviews will be conducted with the suppliers and the manufacturer of this product to have an in-depth understanding of how each product works. <br>
-                  <strong> This is important because it will aid in creating algorithms for each product </strong> that has the same feature, functions and behaviors of the physical system, example of the <br> 
+                  This is important because it will aid in creating <strong> algorithms for each product </strong> that has the same feature, functions and behaviors of the physical system, example of the <br> 
                   product are battery management system (BMS), power management system (PMS) , etc.
                 </p>
+                 
+                <h3>Thesis expected result </h3>
                 <p>
-                  <h3>Thesis expected result </h3>
-                  At the end of the thesis a product is supposed to be delivered which is the web base Digital Twin of ship propulsion systems. The DT will have the following features and functions as follows: <br>
+              
+                  <p> At the end of the thesis a product is expected to be delivered which is the web base Digital Twin of ship propulsion systems. The DT will have the following features and functions as follows: <br> </p>
                   <ul>
                     <li>
                       	Each available DT product will perform the same function and or close to that of the physical production.
@@ -138,46 +153,43 @@
                     </li>
                   </ul>
                   <strong>Note: The above mention features are subjected to change.</strong>
-                </p>
                 
-      </div>
+                
+      
    
 
-      <div class="row">
-        <div class="Flowchat_image column">
-          <img src="../image/basicFlowchat.png" alt=" the basic flow "  >
+                <div class="row flow" >
+                <div class="Flowchat_image column">
+                 <img src="../image/basicFlowchat.png" alt=" the basic flow "  >
     
-        </div>
-        <div class="column">
-          <p>
-            <h3>Process Flowchat</h3>
-            Figure 1 shows a basic flowchat process which is numbered from 1 to 10, at this stage of the thesis much has not been implemented <br>
+             </div>
+              <div class="column ">
+             <p>
+               <h3>Process Flowchart</h3>
+              <p> The image shown on the left shows a basic flowchart process which is numbered from 1 to 10, at this stage of the thesis much has not been implemented <br>
              so the flowchart only show an high level process flowchart. The steps involve are as follows according to there numbers : <br>
-             <p><strong class="step" >Step 1</strong></p>
+            </p>
+             <p class="step" ><strong  >Step 1</strong></p>
              <p>This step as shown represent the beginning of the process.</p>
-             <p><strong class="step">Step 2</strong></p>
+             <p class="step"><strong >Step 2</strong></p>
              <p>In this step as stated in the flow is to “choose operation profile” of the ship or vessel, in ship design the machinery of the ship or vessel is a function of the operation of the ship, this concept prebuilt inside the system. Each ship operation  chosen will have its own pre-defined machinery.</p>
-             <p><strong class="step">Step 3</strong></p>
+             <p class="step"><strong >Step 3</strong></p>
              <p>This step involve automatically displaying the available DT of the  machinery and their suppliers  which is driven by the type of ship or vessel choose in step 2.</p>
-             <p><strong class="step">Step 4</strong></p>
+             <p class="step"><strong >Step 4</strong></p>
              <p>This step involve displaying the details or data of the each DT that is available when click on it. In step 3, the type of machinery with different suppliers are display but in order to see the details a supplier has to be chosen  to display the product data of the supplier.</p>
-             <p><strong class="step">Step 5</strong></p>
+             <p class="step"><strong >Step 5</strong></p>
              In this step, one will be provided with an option to select the product be best meets it’s need, this will be after the step 4 has been complete.
-             <p><strong class="step">Step 6</strong></p>
+             <p class="step"><strong >Step 6</strong></p>
              <p>This step involve  finally adding the product to the vessel or ship propulsion machinery systems, this is after step 5 has been done and the product data meets the vessel requirement you intent to analyze or simulate.</p>
-             <p><strong class="step">Step 7</strong></p>
+             <p class="step" ><strong >Step 7</strong></p>
              <p>In this step you all the necessary propulsion system needed to build a vessel or ship has been added to the vessel, if they are not added go back to step 6 but if they are completed then move to the next step.</p>
 
-             <p><strong class="step">Step 8</strong></p>
-             This is where all the simulations are done, in this step you could decide  what type analysis you want perform ranging from required power, required tank for an operation, emission, fuel consumption, compare different fuel emission, compare different machinery configuration performance. 
-One of the important simulation is the ability to simulate operation, during this simulation a window will open for live monitor of the operation and it possible to creation a scenario to see how it will affect in real live since all the product will behave like the physical system. 
+             <p class="step" ><strong >Step 8</strong></p>
+             <p> This is where all the simulations are done, in this step you could decide  what type analysis you want perform ranging from required power, required tank for an operation, emission, fuel consumption, compare different fuel emission, compare different machinery configuration performance. 
+             One of the important simulation is the ability to simulate operation, during this simulation a window will open for live monitor of the operation and it possible to creation a scenario to see how it will affect in real live since all the product will behave like the physical system. </p>
 
-         <p> <strong class="step">Step 9</strong></p>
-             This step involve displaying the result of simulation in step 8
-             
-             
-            
-          </p>
+         <p class="step" > <strong >Step 9</strong></p>
+         <p> This step involve displaying the result of simulation in step 8</p>
           
 
         </div>
@@ -185,6 +197,7 @@ One of the important simulation is the ability to simulate operation, during thi
       
      <div class="reference">
       <footer>
+        <h2>Reference</h2>
         <ol>
           <li>
             Author(s): Jarosław Nowak, Equipment Analytics, ABB Marine & Ports <br>
@@ -196,17 +209,17 @@ One of the important simulation is the ability to simulate operation, during thi
           <li>
             Author(s) : Adil Rasheed, Omer San, Trond Kvamsda <br>
             Digital Twin: Values, Challenges and Enablers From a Modeling Perspective <br>
-            publisher: IEEE <br>
-            date: 28 January 2020 <br>
-            Page(s): 21980 - 22012 <br>
+            publisher: IEEE , date: 28 January 2020, Page(s): 21980 - 22012 <br>
+            
+            
             DOI: 10.1109/ACCESS.2020.2970143
 
           </li>
           <li>
             Author(s) : Florian Biesinger ; Davis Meike ; Benedikt Kraß ; Michael Weyrich <br>
             A Case Study for a Digital Twin of Body-in-White Production Systems General Concept for Automated Updating of Planning Projects in the Digital Factory <br>
-            publisher: IEEE <br>
-            date: 25 October 2018 <br>
+            publisher: IEEE, Published date: 25 October 2018 <br>
+            
             
             DOI: 10.1109/ETFA.2018.8502467
           </li>
@@ -217,6 +230,7 @@ One of the important simulation is the ability to simulate operation, during thi
        
     
      </div>
+    </div>
 
   </body>
 </html>
