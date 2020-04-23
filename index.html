@@ -152,6 +152,11 @@ grid-auto-flow: column;
   grid-column: 2;
 }
 
+.update{
+  border: solid red 5px;
+  margin: auto;
+}
+
 .propulsion {
   margin-left: 35%;
 }
@@ -475,6 +480,15 @@ p {
  <div class="">
 
  </div>
+   
+  <div class="update">
+    <h2>The project has been changed , check the link here </h2>
+    <button><a href="https://osain-az.github.io/Vessel-Machinery-Configuration/"></button>
+      ">Check new project</a>
+     </button>
+
+  </div>
+
 
 <div class="result_container row" id="result_container">
   <div class="column" id="tank_volume">
@@ -748,9 +762,10 @@ else if (EventID ==="blueWhale") {
   batteryDetails = battery.supplier.corvus3
 
 }
+document.getElementById("divMyTable1").classList.remove("hide");
   for (let [key, value] of Object.entries(batteryDetails)) {
     console.log(`${key}: ${value}`);
-    document.getElementById("divMyTable1").classList.remove("hide");
+    
 
       let table = document.getElementById("myTable1");
       table.classList.remove("hide")
